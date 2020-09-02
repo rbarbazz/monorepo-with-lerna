@@ -1,0 +1,30 @@
+{
+  "name": "@rbarbazz/module-a",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "rbarbazz <raphael.barbazza@gmail.com>",
+  "homepage": "https://github.com/rbarbazz/monorepo-with-lerna#readme",
+  "license": "MIT",
+  "main": "lib/module-a.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rbarbazz/monorepo-with-lerna.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/rbarbazz/monorepo-with-lerna/issues"
+  },
+  "gitHead": "1c1b9339f1af196073aab2ae46f04d93d05d8d74"
+}
