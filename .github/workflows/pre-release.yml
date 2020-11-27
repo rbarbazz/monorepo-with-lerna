@@ -1,0 +1,35 @@
+name: Pre-release
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  prerelease:
+    name: Pre-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Create branch
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git checkout -b release-branch
+          git push --set-upstream origin release-branch
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Update Versions
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm run prerelease
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3.5.1
+        with:
+          base: master
+          branch: release-branch
+          delete-branch: true
