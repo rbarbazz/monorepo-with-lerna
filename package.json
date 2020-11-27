@@ -7,7 +7,7 @@
     "typescript": "^4.0.2"
   },
   "scripts": {
-    "package:prerelease": "lerna version --include-merged-tags --conventional-commits",
-    "package:release": "lerna publish --yes --from-package"
+    "prerelease": "lerna version --include-merged-tags --conventional-commits",
+    "release": "lerna publish --yes --from-package"
   }
 }
