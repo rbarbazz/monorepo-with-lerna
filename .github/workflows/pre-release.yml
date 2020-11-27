@@ -5,7 +5,7 @@ on:
       - develop
 jobs:
   prerelease:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged
     name: Pre-release
     runs-on: ubuntu-latest
     steps:
