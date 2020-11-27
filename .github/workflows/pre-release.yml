@@ -29,8 +29,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm ci && npm run prerelease -- --yes
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3.5.1
-        with:
-          base: master
-          branch: release-branch
+      - name: Pull Request Action
+        uses: vsoch/pull-request-action@1.0.12
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_FROM_BRANCH: develop
+          PULL_REQUEST_BRANCH: master
