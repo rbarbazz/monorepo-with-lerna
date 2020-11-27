@@ -28,7 +28,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm ci && npm run prerelease -- --yes
+        run: npm ci && npm run package:prerelease -- --yes
       - name: Pull Request Action
         uses: vsoch/pull-request-action@1.0.12
         env:
