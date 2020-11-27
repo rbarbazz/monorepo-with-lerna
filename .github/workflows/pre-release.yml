@@ -1,0 +1,39 @@
+name: Pre-release
+on:
+  pull_request:
+    branches:
+      - develop
+    types: [closed]
+
+jobs:
+  prerelease:
+    if: github.event.pull_request.merged == true
+    name: Pre-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: 'develop'
+      - name: Set up credentials
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Update Versions
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm ci && npm run prerelease -- --yes
+      - name: Pull Request Action
+        uses: vsoch/pull-request-action@1.0.12
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_FROM_BRANCH: develop
+          PULL_REQUEST_BRANCH: master
+          PULL_REQUEST_TITLE: Release
+          PASS_IF_EXISTS: true
