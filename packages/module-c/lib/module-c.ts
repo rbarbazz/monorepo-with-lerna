@@ -4,7 +4,6 @@ import moduleB from '@rbarbazz/module-b'
 const moduleC = () => {
   moduleA()
   moduleB()
-  console.log('module-c')
 }
 
 moduleC()
