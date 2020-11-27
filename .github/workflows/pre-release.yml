@@ -35,3 +35,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PULL_REQUEST_FROM_BRANCH: develop
           PULL_REQUEST_BRANCH: master
+          PULL_REQUEST_TITLE: Release
+          PASS_IF_EXISTS: true
