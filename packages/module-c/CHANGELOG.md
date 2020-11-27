@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/rbarbazz/monorepo-with-lerna/compare/@rbarbazz/module-c@1.3.0...@rbarbazz/module-c@1.4.0) (2020-11-27)
+
+
+### Features
+
+* new feature ([1472e49](https://github.com/rbarbazz/monorepo-with-lerna/commit/1472e49ff1e5a9a6a04b1cc4e3d71415c3489000))
+
+
+
+
+
 # 1.3.0 (2020-11-27)
 
 
