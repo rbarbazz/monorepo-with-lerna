@@ -3,7 +3,6 @@ import moduleB from '@rbarbazz/module-b'
 
 const moduleC = () => {
   moduleA()
-  moduleB()
 }
 
 moduleC()
